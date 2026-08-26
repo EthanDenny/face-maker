@@ -1,0 +1,6 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "face-maker",
+	"pages_build_output_dir": ".svelte-kit/cloudflare",
+	"compatibility_date": "2026-08-26"
+}
