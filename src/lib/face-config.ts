@@ -1,9 +1,12 @@
 export const faceStorageKey = 'face-maker:current-face';
 export const faceCookieName = 'face-maker-face';
+export const exportFormatStorageKey = 'face-maker:export-format';
+export const exportFormatCookieName = 'face-maker-export-format';
+export type ExportFormat = 'png' | 'svg';
 
 const faceOptions = {
 	shape: ['soft', 'round', 'tall', 'square', 'wide', 'oval', 'arch', 'bean'],
-	eyes: ['pebble', 'dot', 'sleepy', 'block', 'pill', 'diamond', 'dash', 'drop', 'gem', 'star', 'x'],
+	eyes: ['pebble', 'dot', 'sleepy', 'block', 'pill', 'diamond', 'dash', 'drop', 'alien', 'gem', 'star', 'x'],
 	mood: ['happy', 'curious', 'calm', 'mischief', 'surprised', 'stern', 'worried', 'dreamy'],
 	mouth: ['none', 'smile', 'grin', 'open', 'flat', 'pout', 'ooh', 'smirk'],
 	palette: ['grape', 'tomato', 'mint', 'lemon', 'sky', 'bubblegum', 'tangerine', 'lagoon', 'pistachio', 'midnight', 'cocoa', 'mono']
@@ -22,6 +25,10 @@ export const initialFaceConfig: FaceConfig = {
 	mouth: 'none',
 	palette: 'grape'
 };
+
+export function parseExportFormat(value: unknown): ExportFormat | null {
+	return value === 'png' || value === 'svg' ? value : null;
+}
 
 function includes<T extends string>(items: readonly T[], value: unknown): value is T {
 	return typeof value === 'string' && items.includes(value as T);

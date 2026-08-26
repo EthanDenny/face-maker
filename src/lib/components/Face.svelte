@@ -2,7 +2,7 @@
 	type Palette = { background: string; skin: string; ink: string };
 	let { shape, eyes, mood, mouth, palette }: {
 		shape: 'soft' | 'round' | 'tall' | 'square' | 'wide' | 'oval' | 'arch' | 'bean';
-		eyes: 'pebble' | 'dot' | 'sleepy' | 'block' | 'pill' | 'diamond' | 'dash' | 'drop' | 'gem' | 'star' | 'x';
+		eyes: 'pebble' | 'dot' | 'sleepy' | 'block' | 'pill' | 'diamond' | 'dash' | 'drop' | 'alien' | 'gem' | 'star' | 'x';
 		mood: 'happy' | 'curious' | 'calm' | 'mischief' | 'surprised' | 'stern' | 'worried' | 'dreamy';
 		mouth: 'none' | 'smile' | 'grin' | 'open' | 'flat' | 'pout' | 'ooh' | 'smirk';
 		palette: Palette;
@@ -39,6 +39,10 @@
 	.eyes-diamond span { width: 29%; aspect-ratio: 1; border-radius: 8%; transform: rotate(45deg); }
 	.eyes-dash span { width: 36%; height: 25%; border-radius: 999px; }
 	.eyes-drop span { width: 31%; height: 91%; border-radius: 58% 42% 58% 42%; transform: rotate(-22deg); }
+	.eyes-alien { width: 53%; height: 27%; left: 36%; top: 35%; }
+	.eyes-alien span { width: 43%; height: 100%; }
+	.eyes-alien span:first-child { border-radius: 10% 82% 0 78% / 12% 76% 0 72%; transform: rotate(4deg); }
+	.eyes-alien span:last-child { border-radius: 82% 10% 78% 0 / 76% 12% 72% 0; transform: rotate(-4deg); }
 	.eyes-gem span { width: 35%; aspect-ratio: 1; clip-path: polygon(22% 0, 78% 0, 100% 30%, 50% 100%, 0 30%); }
 	.eyes-star span { width: 36%; aspect-ratio: 1; clip-path: polygon(50% 0, 61% 34%, 98% 35%, 68% 56%, 79% 94%, 50% 72%, 21% 94%, 32% 56%, 2% 35%, 39% 34%); }
 	.eyes-x span { width: 34%; aspect-ratio: 1; clip-path: polygon(0 18%, 18% 0, 50% 32%, 82% 0, 100% 18%, 68% 50%, 100% 82%, 82% 100%, 50% 68%, 18% 100%, 0 82%, 32% 50%); }
