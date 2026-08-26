@@ -1,0 +1,26 @@
+package.json
+  s_40f1941df7447b::t_df9e26585e3e48 9
+  s_40f1941df7447b::t_beb0168e81f6f5 17,23-24
+vite.config.ts
+  s_40f1941df7447b::t_76acd0105585cc 1
+wrangler.jsonc
+  s_40f1941df7447b::t_df9e26585e3e48 1-6
+package-lock.json
+  s_40f1941df7447b::t_fb39d489e72447 12,18-1143,1213-1241,1504-1523,1551-1572,1709-1715,1779-1830,2187-2204,2258-2271,2335-2344,2392-2404,2412-2456,2482-2494,2575-2582,2597-2616,2715-2846
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "7abaa4b62e9ac0c66f573c043e7d0f2596b94be4",
+  "prompts": {},
+  "sessions": {
+    "s_40f1941df7447b": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03f83-e33a-7db1-85d9-49a28383a6d8",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
