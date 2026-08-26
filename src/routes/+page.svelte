@@ -1,9 +1,17 @@
 <script lang="ts">
-	import { toPng, toSvg } from 'html-to-image';
 	import { onMount, untrack } from 'svelte';
 	import Face from '$lib/components/Face.svelte';
-	import { exportFormatCookieName, exportFormatStorageKey, faceCookieName, faceStorageKey, initialFaceConfig, parseExportFormat, parseFaceConfig, serializeFaceCookie } from '$lib/face-config';
-	import type { ExportFormat, EyeStyle, FaceConfig, FaceShape, Mood, MouthStyle } from '$lib/face-config';
+	import {
+		exportFormatCookieName,
+		exportFormatStorageKey,
+		faceCookieName,
+		faceStorageKey,
+		initialFaceConfig,
+		parseExportFormat,
+		parseFaceConfig,
+		serializeFaceCookie
+	} from '$lib/face-config';
+	import type { ExportFormat, FaceConfig } from '$lib/face-config';
 	import type { PageData } from './$types';
 
 	type TraitKey = keyof FaceConfig;
@@ -78,13 +86,17 @@
 		}
 	}
 
+	function readStoredExportFormat() {
+		try {
+			return parseExportFormat(localStorage.getItem(exportFormatStorageKey));
+		} catch {
+			return null;
+		}
+	}
+
 	onMount(() => {
 		config = readStoredConfig() ?? config;
-		try {
-			exportFormat = parseExportFormat(localStorage.getItem(exportFormatStorageKey)) ?? exportFormat;
-		} catch {
-			// Keep the server-provided preference when browser storage is unavailable.
-		}
+		exportFormat = readStoredExportFormat() ?? exportFormat;
 		storageReady = true;
 	});
 
@@ -148,6 +160,7 @@
 
 		isExporting = true;
 		try {
+			const { toPng, toSvg } = await import('html-to-image');
 			const exportOptions = {
 				backgroundColor: activePalette.background,
 				cacheBust: true

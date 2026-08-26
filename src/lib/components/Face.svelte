@@ -1,10 +1,12 @@
 <script lang="ts">
+	import type { EyeStyle, FaceShape, Mood, MouthStyle } from '$lib/face-config';
+
 	type Palette = { background: string; skin: string; ink: string };
 	let { shape, eyes, mood, mouth, palette }: {
-		shape: 'soft' | 'round' | 'tall' | 'square' | 'wide' | 'oval' | 'arch' | 'bean';
-		eyes: 'pebble' | 'dot' | 'sleepy' | 'block' | 'pill' | 'diamond' | 'dash' | 'drop' | 'alien' | 'gem' | 'star' | 'x';
-		mood: 'happy' | 'curious' | 'calm' | 'mischief' | 'surprised' | 'stern' | 'worried' | 'dreamy';
-		mouth: 'none' | 'smile' | 'grin' | 'open' | 'flat' | 'pout' | 'ooh' | 'smirk';
+		shape: FaceShape;
+		eyes: EyeStyle;
+		mood: Mood;
+		mouth: MouthStyle;
 		palette: Palette;
 	} = $props();
 </script>

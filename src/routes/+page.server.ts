@@ -1,4 +1,10 @@
-import { exportFormatCookieName, faceCookieName, initialFaceConfig, parseExportFormat, parseFaceCookie } from '$lib/face-config';
+import {
+	exportFormatCookieName,
+	faceCookieName,
+	initialFaceConfig,
+	parseExportFormat,
+	parseFaceCookie
+} from '$lib/face-config';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = ({ cookies }) => ({
