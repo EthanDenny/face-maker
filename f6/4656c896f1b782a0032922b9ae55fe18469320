@@ -1,0 +1,26 @@
+src/routes/+page.svelte
+  s_982e22841b6c0e::t_431a4d65ade245 4-14,163
+  s_982e22841b6c0e::t_ad0c0de89f2376 89,91,93,95-99
+src/app.css
+  s_982e22841b6c0e::t_fe0af9b783e09f 13,56
+src/lib/components/Face.svelte
+  s_982e22841b6c0e::t_431a4d65ade245 2-3,6-9
+src/routes/+page.server.ts
+  s_982e22841b6c0e::t_ad0c0de89f2376 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "f64656c896f1b782a0032922b9ae55fe18469320",
+  "prompts": {},
+  "sessions": {
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
