@@ -1,0 +1,85 @@
+src/app.d.ts
+  s_982e22841b6c0e::t_154513d34176e7 1-13
+.gitignore
+  s_982e22841b6c0e::t_154513d34176e7 1-23
+README.md
+  s_982e22841b6c0e::t_154513d34176e7 1-42
+src/routes/+page.svelte
+  s_982e22841b6c0e::t_abb1b4a9109f87 166
+  s_982e22841b6c0e::t_db4addf15004e3 54-56,75-77,96-99,101-102
+  s_982e22841b6c0e::t_d4f7840f68cb41 174
+  s_982e22841b6c0e::t_0b3fe8ce3f9737 4,6,15-17,21-22,29-31
+  s_982e22841b6c0e::t_f683e8cb96af29 41-51
+  s_982e22841b6c0e::t_cb3adab3ad1b6d 134-136,138,140-145,147,149-154,156,158-163,165,167-171,177-178
+  s_982e22841b6c0e::t_038b3306aaf1f6 133
+  s_982e22841b6c0e::t_a81dd31b261301 7,33-39,57,100,157,164
+  s_982e22841b6c0e::t_8edb7c25f12c85 5,23-25
+  s_982e22841b6c0e::t_75229b7d69655e 118-119,121-124
+  s_982e22841b6c0e::t_8291051a398545 67-74,78,103-106
+  s_982e22841b6c0e::t_d6304cc60bcbe1 8,59-61,129
+  s_982e22841b6c0e::t_029f6de25aaba7 1-3,12-14,18-20,26-28,32,40,53,62-63,65-66,83,108-117,125-128,130-132,137,139,146,148,155,172-173,175-176,179-181
+  s_982e22841b6c0e::t_95e3f3773949ac 58,95
+  s_982e22841b6c0e::t_c8042d7b14dfb8 120
+  s_982e22841b6c0e::t_8de97229759b6b 11,52
+  s_982e22841b6c0e::t_3066ae9cee6008 9-10,64,79-82,84-94,107
+.vscode/extensions.json
+  s_982e22841b6c0e::t_154513d34176e7 1-3
+tsconfig.json
+  s_982e22841b6c0e::t_154513d34176e7 1-20
+src/lib/assets/favicon.svg
+  s_982e22841b6c0e::t_154513d34176e7 1
+src/lib/index.ts
+  s_982e22841b6c0e::t_154513d34176e7 1
+vite.config.ts
+  s_982e22841b6c0e::t_154513d34176e7 1-20
+src/routes/+layout.svelte
+  s_982e22841b6c0e::t_154513d34176e7 1,3-6,11
+  s_982e22841b6c0e::t_029f6de25aaba7 2
+  s_982e22841b6c0e::t_9638fc9daa5fc9 7-10
+package.json
+  s_982e22841b6c0e::t_154513d34176e7 1-23
+src/app.html
+  s_982e22841b6c0e::t_154513d34176e7 1-12
+.npmrc
+  s_982e22841b6c0e::t_154513d34176e7 1
+src/lib/components/Face.svelte
+  s_982e22841b6c0e::t_b35c5fb5aaa09d 3,12
+  s_982e22841b6c0e::t_01a095adbc8c4d 47
+  s_982e22841b6c0e::t_0f3b1d0b026304 57,59-61,63-65
+  s_982e22841b6c0e::t_0b3fe8ce3f9737 4,6,27-30,38-41,52-56
+  s_982e22841b6c0e::t_029f6de25aaba7 1,8-11,13-15,17-26,48-51,67-68
+  s_982e22841b6c0e::t_8edb7c25f12c85 5,42-44
+  s_982e22841b6c0e::t_d9dec5cb9e85d3 46
+  s_982e22841b6c0e::t_8291051a398545 2,32
+  s_982e22841b6c0e::t_a81dd31b261301 7,16,58,62,66
+  s_982e22841b6c0e::t_486cc0782133a0 31,33-37
+  s_982e22841b6c0e::t_39071de0085a6a 45
+static/robots.txt
+  s_982e22841b6c0e::t_154513d34176e7 1-3
+src/app.css
+  s_982e22841b6c0e::t_cb3adab3ad1b6d 7,9,28-31,37-39,61
+  s_982e22841b6c0e::t_9f315846ee5c43 1-6,8,10,25-27,40,42-53,55-58,60,62-65
+  s_982e22841b6c0e::t_75229b7d69655e 12-14,17-24,54,59
+  s_982e22841b6c0e::t_c8042d7b14dfb8 15-16
+  s_982e22841b6c0e::t_3066ae9cee6008 32-36
+  s_982e22841b6c0e::t_1f06825deda177 41
+  s_982e22841b6c0e::t_2974a9dc2c9c91 11
+package-lock.json
+  s_982e22841b6c0e::t_ca2ea146166862 1-1326
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "34c429127b37542eb9816a0dd00211d0c28ce33c",
+  "prompts": {},
+  "sessions": {
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
