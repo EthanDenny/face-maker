@@ -1,0 +1,46 @@
+src/lib/face-config.ts
+  s_982e22841b6c0e::t_c0e06cc7015975 9
+  s_982e22841b6c0e::t_98bb7ee5a42b5f 3-4,29,31
+  s_982e22841b6c0e::t_25834be9c426c0 5,30
+  s_982e22841b6c0e::t_df63b8f300ef5b 32
+src/app.css
+  s_982e22841b6c0e::t_98bb7ee5a42b5f 44,46-47
+  s_982e22841b6c0e::t_009a7464d2326d 13-16,24-25,29-31,58-59,67-68
+  s_982e22841b6c0e::t_87e93f7a70187f 20-21
+src/lib/components/Face.svelte
+  s_982e22841b6c0e::t_a676253932574a 44-45
+  s_982e22841b6c0e::t_0eb749759184d6 42-43
+  s_982e22841b6c0e::t_c0e06cc7015975 5
+package.json
+  s_982e22841b6c0e::t_f378e655eba466 25-27
+src/routes/+page.svelte
+  s_982e22841b6c0e::t_ce18736ff177ee 159
+  s_982e22841b6c0e::t_009a7464d2326d 67-68,145,147-150,152,158,160-169,249
+  s_982e22841b6c0e::t_c0e06cc7015975 25-26
+  s_982e22841b6c0e::t_98bb7ee5a42b5f 5-6,69,83-87,95,100,238-239,241-243
+  s_982e22841b6c0e::t_4925096f45d979 2,151,153-157
+  s_982e22841b6c0e::t_61b93d3a91fbde 27
+  s_982e22841b6c0e::t_25834be9c426c0 146,187-189,240
+  s_982e22841b6c0e::t_ef009709308c7a 244
+src/routes/+page.server.ts
+  s_982e22841b6c0e::t_25834be9c426c0 6
+  s_982e22841b6c0e::t_98bb7ee5a42b5f 1,5
+package-lock.json
+  s_982e22841b6c0e::t_179aa24acc9c76 10-12,1892-1897
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "38acdaa8fb205c42ab378cccf660656b64e4f4b8",
+  "prompts": {},
+  "sessions": {
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
