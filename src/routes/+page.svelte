@@ -31,7 +31,7 @@
 		{ id: 'pill', label: 'Pill' }, { id: 'diamond', label: 'Diamond' },
 		{ id: 'dash', label: 'Dash' }, { id: 'drop', label: 'Drop' },
 		{ id: 'alien', label: 'Alien' }, { id: 'gem', label: 'Gem' },
-		{ id: 'star', label: 'Star' },
+		{ id: 'star', label: 'Star' }, { id: 'heart', label: 'Heart' },
 		{ id: 'x', label: 'Crossed' }
 	] as const;
 	const moods = [
@@ -205,55 +205,65 @@
 			<aside class="controls" aria-label="Face controls">
 			<div class="control-row">
 				<label for="shape-select">Shape</label>
-				<select id="shape-select" bind:value={config.shape}>
-					{#each shapes as option}
-						<option value={option.id}>{option.label}</option>
-					{/each}
-				</select>
+				<div class="select-wrap">
+					<select id="shape-select" bind:value={config.shape}>
+						{#each shapes as option}
+							<option value={option.id}>{option.label}</option>
+						{/each}
+					</select>
+				</div>
 				<button class="lock-toggle" class:active={lockedTraits.shape} type="button" onclick={() => toggleLock('shape')} aria-label={`${lockedTraits.shape ? 'Unlock' : 'Lock'} shape`} aria-pressed={lockedTraits.shape} title={`${lockedTraits.shape ? 'Unlock' : 'Lock'} shape`}></button>
 			</div>
 			<div class="control-row">
 				<label for="eyes-select">Eyes</label>
-				<select id="eyes-select" bind:value={config.eyes}>
-					{#each eyeStyles as option}
-						<option value={option.id}>{option.label}</option>
-					{/each}
-				</select>
+				<div class="select-wrap">
+					<select id="eyes-select" bind:value={config.eyes}>
+						{#each eyeStyles as option}
+							<option value={option.id}>{option.label}</option>
+						{/each}
+					</select>
+				</div>
 				<button class="lock-toggle" class:active={lockedTraits.eyes} type="button" onclick={() => toggleLock('eyes')} aria-label={`${lockedTraits.eyes ? 'Unlock' : 'Lock'} eyes`} aria-pressed={lockedTraits.eyes} title={`${lockedTraits.eyes ? 'Unlock' : 'Lock'} eyes`}></button>
 			</div>
 			<div class="control-row">
 				<label for="mood-select">Mood</label>
-				<select id="mood-select" bind:value={config.mood}>
-					{#each moods as option}
-						<option value={option.id}>{option.label}</option>
-					{/each}
-				</select>
+				<div class="select-wrap">
+					<select id="mood-select" bind:value={config.mood}>
+						{#each moods as option}
+							<option value={option.id}>{option.label}</option>
+						{/each}
+					</select>
+				</div>
 				<button class="lock-toggle" class:active={lockedTraits.mood} type="button" onclick={() => toggleLock('mood')} aria-label={`${lockedTraits.mood ? 'Unlock' : 'Lock'} mood`} aria-pressed={lockedTraits.mood} title={`${lockedTraits.mood ? 'Unlock' : 'Lock'} mood`}></button>
 			</div>
 			<div class="control-row">
 				<label for="mouth-select">Mouth</label>
-				<select id="mouth-select" bind:value={config.mouth}>
-					{#each mouths as option}
-						<option value={option.id}>{option.label}</option>
-					{/each}
-				</select>
+				<div class="select-wrap">
+					<select id="mouth-select" bind:value={config.mouth}>
+						{#each mouths as option}
+							<option value={option.id}>{option.label}</option>
+						{/each}
+					</select>
+				</div>
 				<button class="lock-toggle" class:active={lockedTraits.mouth} type="button" onclick={() => toggleLock('mouth')} aria-label={`${lockedTraits.mouth ? 'Unlock' : 'Lock'} mouth`} aria-pressed={lockedTraits.mouth} title={`${lockedTraits.mouth ? 'Unlock' : 'Lock'} mouth`}></button>
 			</div>
 			<div class="control-row palette-control">
 				<span class="control-label">Palette</span>
 				<div class="palette-options">
 					{#each palettes as palette}
-						<button type="button" class:active={config.palette === palette.id} style={`--swatch-bg: ${palette.background}; --swatch-skin: ${palette.skin};`} onclick={() => choose('palette', palette.id)} aria-label={palette.name} aria-pressed={config.palette === palette.id}><span></span></button>
+						<button type="button" class:active={config.palette === palette.id} style={`--swatch-bg: ${palette.background}; --swatch-ink: ${palette.ink};`} onclick={() => choose('palette', palette.id)} aria-label={palette.name} aria-pressed={config.palette === palette.id}></button>
 					{/each}
 				</div>
 				<button class="lock-toggle" class:active={lockedTraits.palette} type="button" onclick={() => toggleLock('palette')} aria-label={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`} aria-pressed={lockedTraits.palette} title={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`}></button>
 			</div>
 			<div class="control-row export-format-control">
 				<label for="export-format-select">Export As</label>
-				<select id="export-format-select" bind:value={exportFormat}>
-					<option value="png">PNG</option>
-					<option value="svg">SVG</option>
-				</select>
+				<div class="select-wrap">
+					<select id="export-format-select" bind:value={exportFormat}>
+						<option value="png">PNG</option>
+						<option value="svg">SVG</option>
+					</select>
+				</div>
 			</div>
 			</aside>
 		</div>

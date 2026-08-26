@@ -47,6 +47,10 @@
 	.eyes-alien span:last-child { border-radius: 82% 10% 78% 0 / 76% 12% 72% 0; transform: rotate(-4deg); }
 	.eyes-gem span { width: 35%; aspect-ratio: 1; clip-path: polygon(22% 0, 78% 0, 100% 30%, 50% 100%, 0 30%); }
 	.eyes-star span { width: 36%; aspect-ratio: 1; clip-path: polygon(50% 0, 61% 34%, 98% 35%, 68% 56%, 79% 94%, 50% 72%, 21% 94%, 32% 56%, 2% 35%, 39% 34%); }
+	.eyes-heart span { position: relative; width: 30%; aspect-ratio: 1; border-radius: 8%; transform: rotate(45deg); }
+	.eyes-heart span::before, .eyes-heart span::after { content: ''; position: absolute; width: 100%; height: 100%; background: var(--ink); border-radius: 50%; }
+	.eyes-heart span::before { left: -50%; top: 0; }
+	.eyes-heart span::after { left: 0; top: -50%; }
 	.eyes-x span { width: 34%; aspect-ratio: 1; clip-path: polygon(0 18%, 18% 0, 50% 32%, 82% 0, 100% 18%, 68% 50%, 100% 82%, 82% 100%, 50% 68%, 18% 100%, 0 82%, 32% 50%); }
 	.brows { position: absolute; display: flex; justify-content: space-between; width: 47%; left: 40%; top: 27%; z-index: 1; }
 	.brows span { width: 29%; height: clamp(7px, 1.1vw, 10px); background: var(--ink); border-radius: 999px; transform: scaleX(0); transition: transform 180ms ease; }

@@ -6,7 +6,7 @@ export type ExportFormat = 'png' | 'svg';
 
 const faceOptions = {
 	shape: ['soft', 'round', 'tall', 'square', 'wide', 'oval', 'arch', 'bean'],
-	eyes: ['pebble', 'dot', 'sleepy', 'block', 'pill', 'diamond', 'dash', 'drop', 'alien', 'gem', 'star', 'x'],
+	eyes: ['pebble', 'dot', 'sleepy', 'block', 'pill', 'diamond', 'dash', 'drop', 'alien', 'gem', 'star', 'heart', 'x'],
 	mood: ['happy', 'curious', 'calm', 'mischief', 'surprised', 'stern', 'worried', 'dreamy'],
 	mouth: ['none', 'smile', 'grin', 'open', 'flat', 'pout', 'ooh', 'smirk'],
 	palette: ['grape', 'tomato', 'mint', 'lemon', 'sky', 'bubblegum', 'tangerine', 'lagoon', 'pistachio', 'midnight', 'cocoa', 'mono']
