@@ -4,7 +4,7 @@
 		shape: 'soft' | 'round' | 'tall' | 'square' | 'wide' | 'oval' | 'arch' | 'bean';
 		eyes: 'pebble' | 'dot' | 'sleepy' | 'block' | 'pill' | 'diamond' | 'dash' | 'drop' | 'gem' | 'star' | 'x';
 		mood: 'happy' | 'curious' | 'calm' | 'mischief' | 'surprised' | 'stern' | 'worried' | 'dreamy';
-		mouth: 'none' | 'smile' | 'grin' | 'open' | 'flat' | 'pout' | 'ooh' | 'zigzag' | 'smirk';
+		mouth: 'none' | 'smile' | 'grin' | 'open' | 'flat' | 'pout' | 'ooh' | 'smirk';
 		palette: Palette;
 	} = $props();
 </script>
@@ -56,13 +56,11 @@
 	.mood-dreamy .brows span:first-child { transform: translateY(-5px) rotate(-8deg); }
 	.mouth { position: absolute; left: 61%; top: 68%; width: 23%; height: 10%; color: var(--ink); }
 	.mouth-none { display: none; }
-	.mouth-smile { border-bottom: clamp(6px, 1vw, 9px) solid var(--ink); border-radius: 0 0 999px 999px; }
+	.mouth-smile { top: 69%; height: 11%; background: var(--ink); border-radius: 12% 12% 55% 55% / 16% 16% 100% 100%; }
 	.mouth-grin { height: 13%; background: var(--skin); border: clamp(5px, 0.9vw, 8px) solid var(--ink); border-radius: 35% 35% 55% 55%; }
 	.mouth-open { left: 67%; width: 11%; height: 15%; background: var(--ink); border-radius: 50%; }
 	.mouth-flat { top: 72%; height: clamp(6px, 1vw, 9px); background: var(--ink); border-radius: 999px; }
-	.mouth-pout { top: 72%; border-top: clamp(6px, 1vw, 9px) solid var(--ink); border-radius: 999px 999px 0 0; }
+	.mouth-pout { top: 72%; height: 11%; background: var(--ink); border-radius: 55% 55% 12% 12% / 100% 100% 16% 16%; }
 	.mouth-ooh { left: 67%; width: 11%; aspect-ratio: 1; height: auto; background: var(--skin); border: clamp(5px, 0.9vw, 8px) solid var(--ink); border-radius: 50%; }
-	.mouth-zigzag { top: 70%; height: 7%; background: var(--ink); clip-path: polygon(0 0, 24% 45%, 48% 0, 72% 45%, 100% 0, 76% 100%, 51% 55%, 27% 100%); }
 	.mouth-smirk { left: 64%; top: 71%; width: 18%; height: clamp(6px, 1vw, 9px); background: var(--ink); border-radius: 999px; transform: rotate(-14deg); }
-	@media (prefers-reduced-motion: no-preference) { .head { animation: arrive 420ms cubic-bezier(0.22, 0.8, 0.26, 1); } @keyframes arrive { from { opacity: 0; translate: 0 10px; } } }
 </style>

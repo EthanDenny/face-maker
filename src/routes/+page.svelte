@@ -1,14 +1,14 @@
 <script lang="ts">
+	import { onMount, untrack } from 'svelte';
 	import Face from '$lib/components/Face.svelte';
+	import { faceCookieName, faceStorageKey, initialFaceConfig, parseFaceConfig, serializeFaceCookie } from '$lib/face-config';
+	import type { EyeStyle, FaceConfig, FaceShape, Mood, MouthStyle } from '$lib/face-config';
+	import type { PageData } from './$types';
 
-	type FaceShape = 'soft' | 'round' | 'tall' | 'square' | 'wide' | 'oval' | 'arch' | 'bean';
-	type EyeStyle = 'pebble' | 'dot' | 'sleepy' | 'block' | 'pill' | 'diamond' | 'dash' | 'drop' | 'gem' | 'star' | 'x';
-	type Mood = 'happy' | 'curious' | 'calm' | 'mischief' | 'surprised' | 'stern' | 'worried' | 'dreamy';
-	type MouthStyle = 'none' | 'smile' | 'grin' | 'open' | 'flat' | 'pout' | 'ooh' | 'zigzag' | 'smirk';
-	type FaceConfig = { shape: FaceShape; eyes: EyeStyle; mood: Mood; mouth: MouthStyle; palette: string };
 	type TraitKey = keyof FaceConfig;
 	type LockedTraits = Record<TraitKey, boolean>;
 	type Palette = { id: string; name: string; background: string; skin: string; ink: string };
+	let { data }: { data: PageData } = $props();
 
 	const shapes = [
 		{ id: 'soft', label: 'Soft' }, { id: 'round', label: 'Round' },
@@ -34,7 +34,7 @@
 		{ id: 'none', label: 'None' }, { id: 'smile', label: 'Smile' },
 		{ id: 'grin', label: 'Grin' }, { id: 'open', label: 'Open' },
 		{ id: 'flat', label: 'Flat' }, { id: 'pout', label: 'Pout' },
-		{ id: 'ooh', label: 'Ooh' }, { id: 'zigzag', label: 'Zigzag' },
+		{ id: 'ooh', label: 'Ooh' },
 		{ id: 'smirk', label: 'Smirk' }
 	] as const;
 	const palettes: Palette[] = [
@@ -57,12 +57,36 @@
 	const mouthIds = mouths.map(({ id }) => id);
 	const paletteIds = palettes.filter(({ id }) => id !== 'mono').map(({ id }) => id);
 	const traitKeys: readonly TraitKey[] = ['shape', 'eyes', 'mood', 'mouth', 'palette'];
-	const initialConfig: FaceConfig = { shape: 'round', eyes: 'pebble', mood: 'happy', mouth: 'none', palette: 'grape' };
 	const initialLocks: LockedTraits = { shape: false, eyes: false, mood: false, mouth: false, palette: false };
 
-	let config = $state<FaceConfig>({ ...initialConfig });
+	let config = $state<FaceConfig>({ ...untrack(() => data.config) });
 	let lockedTraits = $state<LockedTraits>({ ...initialLocks });
+	let storageReady = $state(false);
 	const activePalette = $derived(palettes.find((palette) => palette.id === config.palette) ?? palettes[0]);
+
+	function readStoredConfig() {
+		try {
+			const rawConfig = localStorage.getItem(faceStorageKey);
+			return rawConfig ? parseFaceConfig(JSON.parse(rawConfig)) : null;
+		} catch {
+			return null;
+		}
+	}
+
+	onMount(() => {
+		config = readStoredConfig() ?? config;
+		storageReady = true;
+	});
+
+	$effect(() => {
+		if (!storageReady) return;
+		try {
+			localStorage.setItem(faceStorageKey, JSON.stringify(config));
+		} catch {
+			// Keep the face maker usable when browser storage is unavailable.
+		}
+		document.cookie = `${faceCookieName}=${serializeFaceCookie(config)}; Path=/; Max-Age=31536000; SameSite=Lax`;
+	});
 
 	function choose<K extends keyof FaceConfig>(key: K, value: FaceConfig[K]) {
 		config[key] = value;
@@ -103,7 +127,7 @@
 	}
 
 	function reset() {
-		config = { ...initialConfig };
+		config = { ...initialFaceConfig };
 		lockedTraits = { ...initialLocks };
 	}
 </script>
@@ -115,22 +139,17 @@
 
 <div class="site-shell">
 	<main>
-		<section class="intro" aria-label="Face actions">
-			<button class="circle-action randomize-action" type="button" onclick={randomize} aria-label="Randomize face" title="Randomize">
-				<img src="/randomize.png" alt="" aria-hidden="true" />
-			</button>
-			<button class="circle-action reset-action" type="button" onclick={reset} aria-label="Reset face" title="Reset">
-				<span aria-hidden="true">↺</span>
-			</button>
-		</section>
+		<div class="tools-column">
+			<section class="intro" aria-label="Face actions">
+				<button class="circle-action randomize-action" type="button" onclick={randomize} aria-label="Randomize face" title="Randomize">
+					<img src="/randomize.png" alt="" aria-hidden="true" />
+				</button>
+				<button class="circle-action reset-action" type="button" onclick={reset} aria-label="Reset face" title="Reset">
+					<span aria-hidden="true">↺</span>
+				</button>
+			</section>
 
-		<section class="preview-card" aria-label="Your face preview">
-			<div class="face-frame">
-				<Face shape={config.shape} eyes={config.eyes} mood={config.mood} mouth={config.mouth} palette={activePalette} />
-			</div>
-		</section>
-
-		<aside class="controls" aria-label="Face controls">
+			<aside class="controls" aria-label="Face controls">
 			<div class="control-row">
 				<label for="shape-select">Shape</label>
 				<select id="shape-select" bind:value={config.shape}>
@@ -176,6 +195,13 @@
 				</div>
 				<button class="lock-toggle" class:active={lockedTraits.palette} type="button" onclick={() => toggleLock('palette')} aria-label={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`} aria-pressed={lockedTraits.palette} title={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`}></button>
 			</div>
-		</aside>
+			</aside>
+		</div>
+
+		<section class="preview-card" aria-label="Your face preview">
+			<div class="face-frame">
+				<Face shape={config.shape} eyes={config.eyes} mood={config.mood} mouth={config.mouth} palette={activePalette} />
+			</div>
+		</section>
 	</main>
 </div>
