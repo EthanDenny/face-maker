@@ -1,0 +1,36 @@
+src/app.css
+  s_982e22841b6c0e::t_414f999fab1485 26,48,50
+  s_982e22841b6c0e::t_26b853e97ad466 5-6,8,10,32-35,41,46-47,53-58,60-70,72-77
+  s_982e22841b6c0e::t_0df078707f3aee 11-14,28
+  s_982e22841b6c0e::t_146150e1b6759d 29
+  s_982e22841b6c0e::t_cdc49359dee9b7 51,59
+src/lib/face-config.ts
+  s_982e22841b6c0e::t_9e140a67b16ac7 1-59
+src/lib/components/Face.svelte
+  s_982e22841b6c0e::t_5f3ea931a3b568 7,59,63
+src/routes/+page.server.ts
+  s_982e22841b6c0e::t_9e140a67b16ac7 1-6
+src/routes/+page.svelte
+  s_982e22841b6c0e::t_2132c0546d8ecb 2,62
+  s_982e22841b6c0e::t_2bf90ee12b5fd9 68-69,71,73-74,80-81,83-87,89
+  s_982e22841b6c0e::t_414f999fab1485 142-150,152,198-205
+  s_982e22841b6c0e::t_70d8c78fb4d7fb 37
+  s_982e22841b6c0e::t_9e140a67b16ac7 4-6,11,64,67,70,72,75-79,82,88,130
+  s_982e22841b6c0e::t_e5ba80a2cd07ff 90
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "caa239c876e4bf2f827593095ece8d1dd79ee419",
+  "prompts": {},
+  "sessions": {
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
