@@ -24,5 +24,8 @@
 		"vite": "^8.0.16",
 		"vitest": "^4.1.11",
 		"wrangler": "^4.126.0"
+	},
+	"dependencies": {
+		"@lucide/svelte": "^1.34.0"
 	}
 }

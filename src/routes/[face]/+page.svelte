@@ -1,5 +1,11 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import ChevronDown from '@lucide/svelte/icons/chevron-down';
+	import Download from '@lucide/svelte/icons/download';
+	import Lock from '@lucide/svelte/icons/lock';
+	import LockOpen from '@lucide/svelte/icons/lock-open';
+	import RotateCcw from '@lucide/svelte/icons/rotate-ccw';
+	import Shuffle from '@lucide/svelte/icons/shuffle';
 	import { onMount, untrack } from 'svelte';
 	import Face from '$lib/components/Face.svelte';
 	import { exportFace as downloadFace } from '$lib/face-export';
@@ -105,6 +111,14 @@
 	}
 </script>
 
+{#snippet lockIcon(locked: boolean)}
+	{#if locked}
+		<Lock aria-hidden="true" strokeWidth={2.5} />
+	{:else}
+		<LockOpen aria-hidden="true" strokeWidth={2.5} />
+	{/if}
+{/snippet}
+
 <svelte:head>
 	<title>Face Maker — Tiny faces, big personality</title>
 	<meta name="description" content="A playful little studio for making bold, geometric faces." />
@@ -115,13 +129,13 @@
 		<div class="tools-column">
 			<section class="intro" aria-label="Face actions">
 				<button class="circle-action randomize-action" type="button" onclick={randomize} aria-label="Randomize face" title="Randomize">
-					<img src="/randomize.png" alt="" aria-hidden="true" />
+					<Shuffle aria-hidden="true" strokeWidth={2.5} />
 				</button>
 				<button class="circle-action reset-action" type="button" onclick={reset} aria-label="Reset face" title="Reset">
-					<span aria-hidden="true">↺</span>
+					<RotateCcw aria-hidden="true" strokeWidth={2.5} />
 				</button>
 				<button class="circle-action export-action" type="button" onclick={() => exportFace(exportFormat)} disabled={isExporting} aria-label={`Export face as ${exportFormat.toUpperCase()}`} title={`Export as ${exportFormat.toUpperCase()}`}>
-					<span aria-hidden="true">↓</span>
+					<Download aria-hidden="true" strokeWidth={2.5} />
 				</button>
 			</section>
 
@@ -134,8 +148,9 @@
 							<option value={option.id}>{option.label}</option>
 						{/each}
 					</select>
+					<ChevronDown class="select-icon" aria-hidden="true" strokeWidth={2.5} />
 				</div>
-				<button class="lock-toggle" class:active={lockedTraits.shape} type="button" onclick={() => toggleLock('shape')} aria-label={`${lockedTraits.shape ? 'Unlock' : 'Lock'} shape`} aria-pressed={lockedTraits.shape} title={`${lockedTraits.shape ? 'Unlock' : 'Lock'} shape`}></button>
+				<button class="lock-toggle" class:active={lockedTraits.shape} type="button" onclick={() => toggleLock('shape')} aria-label={`${lockedTraits.shape ? 'Unlock' : 'Lock'} shape`} aria-pressed={lockedTraits.shape} title={`${lockedTraits.shape ? 'Unlock' : 'Lock'} shape`}>{@render lockIcon(lockedTraits.shape)}</button>
 			</div>
 			<div class="control-row">
 				<label for="eyes-select">Eyes</label>
@@ -145,8 +160,9 @@
 							<option value={option.id}>{option.label}</option>
 						{/each}
 					</select>
+					<ChevronDown class="select-icon" aria-hidden="true" strokeWidth={2.5} />
 				</div>
-				<button class="lock-toggle" class:active={lockedTraits.eyes} type="button" onclick={() => toggleLock('eyes')} aria-label={`${lockedTraits.eyes ? 'Unlock' : 'Lock'} eyes`} aria-pressed={lockedTraits.eyes} title={`${lockedTraits.eyes ? 'Unlock' : 'Lock'} eyes`}></button>
+				<button class="lock-toggle" class:active={lockedTraits.eyes} type="button" onclick={() => toggleLock('eyes')} aria-label={`${lockedTraits.eyes ? 'Unlock' : 'Lock'} eyes`} aria-pressed={lockedTraits.eyes} title={`${lockedTraits.eyes ? 'Unlock' : 'Lock'} eyes`}>{@render lockIcon(lockedTraits.eyes)}</button>
 			</div>
 			<div class="control-row">
 				<label for="mood-select">Mood</label>
@@ -156,8 +172,9 @@
 							<option value={option.id}>{option.label}</option>
 						{/each}
 					</select>
+					<ChevronDown class="select-icon" aria-hidden="true" strokeWidth={2.5} />
 				</div>
-				<button class="lock-toggle" class:active={lockedTraits.mood} type="button" onclick={() => toggleLock('mood')} aria-label={`${lockedTraits.mood ? 'Unlock' : 'Lock'} mood`} aria-pressed={lockedTraits.mood} title={`${lockedTraits.mood ? 'Unlock' : 'Lock'} mood`}></button>
+				<button class="lock-toggle" class:active={lockedTraits.mood} type="button" onclick={() => toggleLock('mood')} aria-label={`${lockedTraits.mood ? 'Unlock' : 'Lock'} mood`} aria-pressed={lockedTraits.mood} title={`${lockedTraits.mood ? 'Unlock' : 'Lock'} mood`}>{@render lockIcon(lockedTraits.mood)}</button>
 			</div>
 			<div class="control-row">
 				<label for="mouth-select">Mouth</label>
@@ -167,8 +184,9 @@
 							<option value={option.id}>{option.label}</option>
 						{/each}
 					</select>
+					<ChevronDown class="select-icon" aria-hidden="true" strokeWidth={2.5} />
 				</div>
-				<button class="lock-toggle" class:active={lockedTraits.mouth} type="button" onclick={() => toggleLock('mouth')} aria-label={`${lockedTraits.mouth ? 'Unlock' : 'Lock'} mouth`} aria-pressed={lockedTraits.mouth} title={`${lockedTraits.mouth ? 'Unlock' : 'Lock'} mouth`}></button>
+				<button class="lock-toggle" class:active={lockedTraits.mouth} type="button" onclick={() => toggleLock('mouth')} aria-label={`${lockedTraits.mouth ? 'Unlock' : 'Lock'} mouth`} aria-pressed={lockedTraits.mouth} title={`${lockedTraits.mouth ? 'Unlock' : 'Lock'} mouth`}>{@render lockIcon(lockedTraits.mouth)}</button>
 			</div>
 			<div class="control-row palette-control">
 				<span class="control-label">Palette</span>
@@ -177,7 +195,7 @@
 						<button type="button" class:active={config.palette === palette.id} style={`--swatch-bg: ${palette.background}; --swatch-ink: ${palette.ink};`} onclick={() => choose('palette', palette.id)} aria-label={palette.label} aria-pressed={config.palette === palette.id}></button>
 					{/each}
 				</div>
-				<button class="lock-toggle" class:active={lockedTraits.palette} type="button" onclick={() => toggleLock('palette')} aria-label={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`} aria-pressed={lockedTraits.palette} title={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`}></button>
+				<button class="lock-toggle" class:active={lockedTraits.palette} type="button" onclick={() => toggleLock('palette')} aria-label={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`} aria-pressed={lockedTraits.palette} title={`${lockedTraits.palette ? 'Unlock' : 'Lock'} palette`}>{@render lockIcon(lockedTraits.palette)}</button>
 			</div>
 			<div class="control-row export-format-control">
 				<label for="export-format-select">Export As</label>
@@ -186,15 +204,18 @@
 						<option value="png">PNG</option>
 						<option value="svg">SVG</option>
 					</select>
+					<ChevronDown class="select-icon" aria-hidden="true" strokeWidth={2.5} />
 				</div>
 			</div>
 			</aside>
 		</div>
 
-		<section class="preview-card" aria-label="Your face preview">
-			<div class="face-frame" bind:this={faceFrame}>
-				<Face shape={config.shape} eyes={config.eyes} mood={config.mood} mouth={config.mouth} palette={activePalette} />
-			</div>
-		</section>
+		<div class="preview-column">
+			<section class="preview-card" aria-label="Your face preview">
+				<div class="face-frame" bind:this={faceFrame}>
+					<Face shape={config.shape} eyes={config.eyes} mood={config.mood} mouth={config.mouth} palette={activePalette} />
+				</div>
+			</section>
+		</div>
 	</main>
 </div>

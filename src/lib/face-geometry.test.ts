@@ -16,4 +16,10 @@ describe('createFaceGeometry', () => {
 			}
 		}
 	});
+
+	it('renders each heart as one normalized path', () => {
+		const geometry = createFaceGeometry('wide', 'heart', 'happy', 'none');
+		expect(geometry.eyes).toHaveLength(2);
+		expect(geometry.eyes.every(({ transform }) => transform === undefined)).toBe(true);
+	});
 });

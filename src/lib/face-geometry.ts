@@ -76,6 +76,20 @@ function ellipsePath(x: number, y: number, width: number, height: number) {
 	return roundedRectPath(x, y, width, height, [50, 50, 50, 50]);
 }
 
+function heartPath(x: number, y: number, width: number, height: number) {
+	const point = (px: number, py: number) => `${number(x + width * px / 100)} ${number(y + height * py / 100)}`;
+	return [
+		`M ${point(50, 100)}`,
+		`C ${point(44, 91)} ${point(4, 66)} ${point(4, 36)}`,
+		`C ${point(4, 14)} ${point(19, 2)} ${point(36, 2)}`,
+		`C ${point(44, 2)} ${point(48, 7)} ${point(50, 14)}`,
+		`C ${point(52, 7)} ${point(56, 2)} ${point(64, 2)}`,
+		`C ${point(81, 2)} ${point(96, 14)} ${point(96, 36)}`,
+		`C ${point(96, 66)} ${point(56, 91)} ${point(50, 100)}`,
+		'Z'
+	].join(' ');
+}
+
 function transformAround(angle: number, x: number, y: number, width: number, height: number) {
 	return `rotate(${angle} ${number(x + width / 2)} ${number(y + height / 2)})`;
 }
@@ -132,18 +146,7 @@ function eyePaths(style: EyeStyle, head: HeadMetrics): SvgPath[] {
 		case 'gem': return squarePair(0.35, (itemX, itemY, size) => polygonPath(itemX, itemY, size, size, [[22, 0], [78, 0], [100, 30], [50, 100], [0, 30]]));
 		case 'star': return squarePair(0.36, (itemX, itemY, size) => polygonPath(itemX, itemY, size, size, [[50, 0], [61, 34], [98, 35], [68, 56], [79, 94], [50, 72], [21, 94], [32, 56], [2, 35], [39, 34]]));
 		case 'x': return squarePair(0.34, (itemX, itemY, size) => polygonPath(itemX, itemY, size, size, [[0, 18], [18, 0], [50, 32], [82, 0], [100, 18], [68, 50], [100, 82], [82, 100], [50, 68], [18, 100], [0, 82], [32, 50]]));
-		case 'heart': {
-			const size = width * 0.3;
-			const itemY = y + (height - size) / 2;
-			return pair(x, width, size).flatMap((itemX) => {
-				const transform = transformAround(45, itemX, itemY, size, size);
-				return [
-					solid(roundedRectPath(itemX, itemY, size, size, [8, 8, 8, 8]), transform),
-					solid(ellipsePath(itemX - size / 2, itemY, size, size), transform),
-					solid(ellipsePath(itemX, itemY - size / 2, size, size), transform)
-				];
-			});
-		}
+		case 'heart': return squarePair(0.36, (itemX, itemY, size) => heartPath(itemX, itemY, size, size));
 		case 'alien': {
 			const itemWidth = width * 0.43;
 			const itemHeight = height;
