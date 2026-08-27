@@ -1,0 +1,33 @@
+src/routes/+page.svelte
+  s_982e22841b6c0e::t_387db95331d022 139,150,161,172,182-183
+  s_982e22841b6c0e::t_4ea481a1dbb6f8 7,10,12-15,18-19,22,28,33,79,84
+src/lib/components/Face.svelte
+  s_982e22841b6c0e::t_387db95331d022 2
+package.json
+  s_982e22841b6c0e::t_eda5738b93397c 25
+  s_982e22841b6c0e::t_fccfa6ed7ac02d 12
+src/lib/face-config.ts
+  s_982e22841b6c0e::t_21398e6cec6aff 7-63,73-99,103-134,141-145
+src/app.css
+  s_982e22841b6c0e::t_a9198741ef42a1 48
+src/lib/face-config.test.ts
+  s_982e22841b6c0e::t_fccfa6ed7ac02d 1-43
+package-lock.json
+  s_982e22841b6c0e::t_084c2b6f0d26d7 22,1659-1669,1677-1683,1698-1810,1834-1843,1861-1870,1897-1903,1951-1957,2025-2044,2652-2658,2684-2697,2764-2780,2798-2807,2958-3064
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "c97a987d97933c5d745d7d192e7d8d4d35e0e532",
+  "prompts": {},
+  "sessions": {
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
