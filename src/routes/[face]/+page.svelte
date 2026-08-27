@@ -1,6 +1,8 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import { onMount, untrack } from 'svelte';
 	import Face from '$lib/components/Face.svelte';
+	import { exportFace as downloadFace } from '$lib/face-export';
 	import {
 		exportFormatCookieName,
 		exportFormatStorageKey,
@@ -14,8 +16,8 @@
 		mouthOptions,
 		paletteOptions,
 		parseExportFormat,
-		parseFaceConfig,
 		randomizeFace,
+		serializeFacePath,
 		shapeOptions,
 		serializeFaceCookie
 	} from '$lib/face-config';
@@ -32,15 +34,6 @@
 	let exportFormat = $state<ExportFormat>(untrack(() => data.exportFormat));
 	const activePalette = $derived(getPalette(config.palette));
 
-	function readStoredConfig() {
-		try {
-			const rawConfig = localStorage.getItem(faceStorageKey);
-			return rawConfig ? parseFaceConfig(JSON.parse(rawConfig)) : null;
-		} catch {
-			return null;
-		}
-	}
-
 	function readStoredExportFormat() {
 		try {
 			return parseExportFormat(localStorage.getItem(exportFormatStorageKey));
@@ -50,9 +43,12 @@
 	}
 
 	onMount(() => {
-		config = readStoredConfig() ?? config;
 		exportFormat = readStoredExportFormat() ?? exportFormat;
 		storageReady = true;
+	});
+
+	$effect(() => {
+		config = { ...data.config };
 	});
 
 	$effect(() => {
@@ -65,10 +61,19 @@
 		}
 		document.cookie = `${faceCookieName}=${serializeFaceCookie(config)}; Path=/; Max-Age=31536000; SameSite=Lax`;
 		document.cookie = `${exportFormatCookieName}=${exportFormat}; Path=/; Max-Age=31536000; SameSite=Lax`;
+		const path = serializeFacePath(config);
+		if (window.location.pathname !== path) {
+			void goto(path, { replaceState: true, noScroll: true, keepFocus: true });
+		}
 	});
 
 	function choose<K extends keyof FaceConfig>(key: K, value: FaceConfig[K]) {
+		if (config[key] === value) return;
 		config[key] = value;
+	}
+
+	function chooseExportFormat(event: Event) {
+		exportFormat = parseExportFormat((event.currentTarget as HTMLSelectElement).value) ?? 'png';
 	}
 
 	function toggleLock(trait: TraitKey) {
@@ -89,20 +94,9 @@
 
 		isExporting = true;
 		try {
-			const { toPng, toSvg } = await import('html-to-image');
-			const exportOptions = {
-				backgroundColor: activePalette.background,
-				cacheBust: true
-			};
-			const dataUrl = format === 'png'
-				? await toPng(faceFrame, { ...exportOptions, pixelRatio: 2 })
-				: await toSvg(faceFrame, exportOptions);
-			const link = document.createElement('a');
-			link.download = `${config.shape}-${config.mood}-${config.palette}-${config.eyes}-${config.mouth}.${format}`;
-			link.href = dataUrl;
-			document.body.append(link);
-			link.click();
-			link.remove();
+			const svg = faceFrame.querySelector('svg');
+			if (!svg) throw new Error('Face SVG is unavailable');
+			await downloadFace(svg, format, `${config.shape}-${config.mood}-${config.palette}-${config.eyes}-${config.mouth}.${format}`);
 		} catch (error) {
 			console.error('Could not export face', error);
 		} finally {
@@ -188,7 +182,7 @@
 			<div class="control-row export-format-control">
 				<label for="export-format-select">Export As</label>
 				<div class="select-wrap">
-					<select id="export-format-select" bind:value={exportFormat}>
+					<select id="export-format-select" value={exportFormat} oninput={chooseExportFormat}>
 						<option value="png">PNG</option>
 						<option value="svg">SVG</option>
 					</select>

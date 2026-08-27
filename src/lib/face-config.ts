@@ -154,6 +154,17 @@ export function parseFaceConfig(value: unknown): FaceConfig | null {
 	};
 }
 
+export function serializeFacePath(config: FaceConfig) {
+	return `/${config.shape}-${config.eyes}-${config.mood}-${config.mouth}-${config.palette}`;
+}
+
+export function parseFacePath(value: string | undefined) {
+	if (!value) return null;
+	const [shape, eyes, mood, mouth, palette, extra] = value.split('-');
+	if (extra !== undefined) return null;
+	return parseFaceConfig({ shape, eyes, mood, mouth, palette });
+}
+
 export function serializeFaceCookie(config: FaceConfig) {
 	return [config.shape, config.eyes, config.mood, config.mouth, config.palette].join('.');
 }

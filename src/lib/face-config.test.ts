@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
 	initialFaceConfig,
 	initialLockedTraits,
+	parseFacePath,
 	randomizeFace,
+	serializeFacePath,
 	traitKeys
 } from './face-config';
 import type { FaceConfig, LockedTraits } from './face-config';
@@ -39,5 +41,18 @@ describe('randomizeFace', () => {
 			const next = randomizeFace(whiteFace, initialLockedTraits, () => step / 100);
 			expect(next.palette).not.toBe('mono');
 		}
+	});
+});
+
+describe('face paths', () => {
+	it('round-trips a face configuration', () => {
+		const path = serializeFacePath(initialFaceConfig);
+		expect(path).toBe('/round-pebble-happy-none-grape');
+		expect(parseFacePath(path.slice(1))).toEqual(initialFaceConfig);
+	});
+
+	it('rejects incomplete and unknown configurations', () => {
+		expect(parseFacePath('round-pebble')).toBeNull();
+		expect(parseFacePath('round-laser-happy-none-grape')).toBeNull();
 	});
 });
