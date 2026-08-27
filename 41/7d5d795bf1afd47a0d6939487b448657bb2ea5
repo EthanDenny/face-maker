@@ -1,0 +1,28 @@
+src/lib/components/Face.svelte
+  s_982e22841b6c0e::t_ba7c535f7fe09a 2,4,13-21,24-29,31-37,39-41,44
+  s_982e22841b6c0e::t_f93d29fba2a1ea 45-48
+  s_982e22841b6c0e::t_bb73d4a1aa247b 30,38
+src/lib/face-geometry.ts
+  s_982e22841b6c0e::t_ac9c22e50ee0af 1-24,29-135,146-151,160-170,172-173,176-186,188-192,194,197,199-213,223-228,230-237,240-245,247-249,251-261,269,271-273,275-279,283-284
+  s_982e22841b6c0e::t_f93d29fba2a1ea 25-28,171,174-175,187,193,195-196,198,215,229,238,246,250,262-268,270,274,280-282
+  s_982e22841b6c0e::t_0bb6358d99a3a9 136-145,152-159
+  s_982e22841b6c0e::t_455c78c70516ba 214,216-222,239
+src/lib/face-geometry.test.ts
+  s_982e22841b6c0e::t_49d9e3283b7a03 1-19
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "417d5d795bf1afd47a0d6939487b448657bb2ea5",
+  "prompts": {},
+  "sessions": {
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
