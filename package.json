@@ -9,6 +9,7 @@
 		"deploy": "npm run build && wrangler pages deploy .svelte-kit/cloudflare --project-name face-maker --branch main",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
+		"test": "vitest run",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
@@ -21,6 +22,7 @@
 		"svelte-check": "^4.6.0",
 		"typescript": "^6.0.3",
 		"vite": "^8.0.16",
+		"vitest": "^4.1.11",
 		"wrangler": "^4.126.0"
 	},
 	"dependencies": {

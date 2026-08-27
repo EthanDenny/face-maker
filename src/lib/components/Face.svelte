@@ -1,7 +1,6 @@
 <script lang="ts">
-	import type { EyeStyle, FaceShape, Mood, MouthStyle } from '$lib/face-config';
+	import type { EyeStyle, FaceShape, Mood, MouthStyle, Palette } from '$lib/face-config';
 
-	type Palette = { background: string; skin: string; ink: string };
 	let { shape, eyes, mood, mouth, palette }: {
 		shape: FaceShape;
 		eyes: EyeStyle;
