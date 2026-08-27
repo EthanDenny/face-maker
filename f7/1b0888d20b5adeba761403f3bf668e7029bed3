@@ -1,0 +1,47 @@
+src/routes/+page.server.ts
+  s_982e22841b6c0e::t_5ea96eb3712ec7 8
+  s_982e22841b6c0e::t_397f4a38961b44 1-2,5-7
+src/lib/face-config.test.ts
+  s_982e22841b6c0e::t_5fc330de9bcf17 46,48,52-53,57
+  s_982e22841b6c0e::t_397f4a38961b44 5,7,47,49-51,54-56
+  s_387d895cd7b891::t_365ab8ccfc429c 58
+src/lib/components/Face.svelte
+  s_982e22841b6c0e::t_2491e3b69aa396 37
+  s_982e22841b6c0e::t_3bdf710aeebc25 17-19,22,41-43,50-51,54-57,61-62,65-68
+  s_982e22841b6c0e::t_9c829ea78aaf62 28-29,33-36
+  s_982e22841b6c0e::t_9aeda5e1c649a1 25,30-32,38-40,46,52-53,63-64
+src/lib/face-export.ts
+  s_982e22841b6c0e::t_57577b6b4c9820 1-12,14-16,19-40,42-50
+  s_982e22841b6c0e::t_198a13ff4d4e26 13,17-18,41
+src/routes/[face]/+page.svelte
+  s_982e22841b6c0e::t_b4ce0bf3fae425 2,5,20,50-53,64-67,71,75-78,97-99,185
+src/routes/[face]/+page.server.ts
+  s_982e22841b6c0e::t_397f4a38961b44 1-24
+src/lib/face-config.ts
+  s_982e22841b6c0e::t_2c2fd1f5de552e 159-160,166-167
+  s_982e22841b6c0e::t_397f4a38961b44 157-158,161-165
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "f71b0888d20b5adeba761403f3bf668e7029bed3",
+  "prompts": {},
+  "sessions": {
+    "s_387d895cd7b891": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a04123-0a26-72c2-8237-0ef75c1f4d3b",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    },
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
