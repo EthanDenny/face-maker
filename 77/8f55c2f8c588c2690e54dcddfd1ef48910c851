@@ -1,0 +1,39 @@
+src/app.css
+  s_982e22841b6c0e::t_da933ae1dc0910 27,50
+  s_982e22841b6c0e::t_415b1ddf029f9f 31
+  s_982e22841b6c0e::t_fc44d5dbc40252 43
+  s_982e22841b6c0e::t_92dc39f96a0bf1 15-16,34,36-37,62
+  s_982e22841b6c0e::t_0f0cbbd728fba3 11,28,52
+  s_982e22841b6c0e::t_de3091457d7599 48,68
+  s_982e22841b6c0e::t_8c201c9245dcc7 54
+  s_982e22841b6c0e::t_066e5fc420cd03 56
+package.json
+  s_982e22841b6c0e::t_85959e5d951354 29
+  s_982e22841b6c0e::t_765a26db42aa4d 27-28
+src/lib/face-geometry.test.ts
+  s_982e22841b6c0e::t_438c26b7a3a463 19-24
+src/lib/face-geometry.ts
+  s_982e22841b6c0e::t_438c26b7a3a463 79-92,149
+src/routes/[face]/+page.svelte
+  s_982e22841b6c0e::t_858b2c7400d964 3-8
+  s_982e22841b6c0e::t_0f0cbbd728fba3 213-219
+  s_982e22841b6c0e::t_80504effe0e212 114-121,132,135,138,151,153,163,165,175,177,187,189,198,207
+package-lock.json
+  s_982e22841b6c0e::t_83d723c82ca8e3 10-12,1195-1203
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.0",
+  "base_commit_sha": "778f55c2f8c588c2690e54dcddfd1ef48910c851",
+  "prompts": {},
+  "sessions": {
+    "s_982e22841b6c0e": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a03e8c-44eb-7612-b935-30550a46c56c",
+        "model": "gpt-5.6-sol"
+      },
+      "human_author": "Ethan Denny <ethandenny@protonmail.com>"
+    }
+  }
+}
